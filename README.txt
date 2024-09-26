@@ -1,4 +1,4 @@
-~ Parallel Frame Processing 
+**Parallel Frame Processing **
 
 ~~ Requirements
 
@@ -10,14 +10,16 @@
 
 ~~~ **Using CMake**
 
-1. **Clone the Repository**
+1. 
+**Clone the Repository**
 
    ```bash
    git clone https://github.com/tamirblu/ParallelFrameProcessing.git
    cd ParallelFrameProcessing
 
 
-2. **Create a Build Directory**
+2. 
+**Create a Build Directory**
 
    ```bash
     * mkdir build
@@ -32,7 +34,8 @@
 
 ---
 
-~~ **3. Explaining the Design and Code**
+~~ 
+**3. Explaining the Design and Code**
 
 In this section, I'll explain the overall design of the application, the reasoning behind key decisions, and reflect on the task.
 
