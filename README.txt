@@ -32,7 +32,7 @@
 
 ---
 
-## *3. Explaining the Design and Code*
+## **3. Explaining the Design and Code**
 
 In this section, I'll explain the overall design of the application, the reasoning behind key decisions, and reflect on the task.
 
