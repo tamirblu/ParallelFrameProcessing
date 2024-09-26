@@ -11,14 +11,9 @@ set(CMAKE_BUILD_TYPE Debug)
 # Find OpenCV
 find_package(OpenCV REQUIRED)
 
-# Include OpenCV directories
-#include_directories(${OpenCV_INCLUDE_DIRS})
-
-
 include_directories(
         ${OpenCV_INCLUDE_DIRS}
         ${PROJECT_SOURCE_DIR}/src
-        # ${PROJECT_SOURCE_DIR}/include  # Uncomment if you have an 'include' directory
 )
 
 # Add all source files
