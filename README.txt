@@ -38,8 +38,6 @@ In this section, I'll explain the overall design of the application, the reasoni
 
 ### **3.1 Design Overview**
 
-The application is designed to process video frames in parallel using multiple threads, following object-oriented programming principles for scalability and maintainability.
-
 #### **Key Components:**
 
 1. **FrameCapture**: Responsible for reading frames from the video file and distributing them to registered processing modules.
@@ -51,8 +49,6 @@ The application is designed to process video frames in parallel using multiple t
 4. **SlowModule**: Saves frames as JPEG files, managing a queue with a maximum size to handle backpressure.
 
 5. **Journal**: Logs which frames were saved and which were dropped in the Slow Module.
-
-6. **Logger**: Provides a thread-safe logging mechanism to standardize log messages across the application.
 
 ### **3.2 Object-Oriented Design**
 
@@ -78,11 +74,11 @@ The application is designed to process video frames in parallel using multiple t
 
 - **Robust Error Handling**: The application uses try-catch blocks to handle exceptions, particularly around file I/O and OpenCV operations.
 
-- **Consistent Logging**: All log messages are standardized through the `Logger` class, which logs messages to both the console and a log file with timestamps and log levels.
+- **Consistent Logging**: Logs messages to both the console and saving "logs" to the journal.
 
 ### **3.5 Queue Management in SlowModule**
 
-- **Limited Queue Size**: The Slow Module maintains a queue with a maximum size of 5 frames to prevent memory overconsumption.
+- **Limited Queue Size**: The Slow Module maintains a queue (deque) with a maximum size of 5 frames to prevent memory overconsumption.
 
 - **Frame Dropping**: If the queue is full, the oldest frame is discarded to make room for new frames, and the event is logged in the journal.
 
@@ -96,19 +92,17 @@ When I received the task, I began by carefully analyzing the requirements to ens
 
 - **Ensuring Thread Safety**: Multithreading introduces complexity, so I paid special attention to synchronization mechanisms to prevent race conditions and deadlocks.
 
-- **Implementing Robust Error Handling**: I anticipated potential points of failure, such as file I/O errors and exceptions from OpenCV, and implemented exception handling to make the application robust.
+- **Implementing Robust Error Handling**: I focused  on potential points of failure, such as file I/O errors and exceptions from OpenCV, and implemented exception handling to make the application robust.
 
-- **Adding Logging for Transparency**: A consistent logging mechanism was important for monitoring the application's behavior and diagnosing issues.
+- **Adding Logging for Transparency**: A consistent logging was important for monitoring the application's behavior and diagnosing issues.
 
-- **Testing and Validation**: I tested the application with various video files and configurations to ensure it performed as expected under different conditions.
+- **Testing and Validation**: I tested the application with various configurations to ensure it performed as expected under different conditions.
 
 ### **3.7 Challenges Faced**
 
 - **Synchronization Complexity**: Managing shared resources between multiple threads required careful synchronization to avoid performance bottlenecks.
 
-- **Balancing Performance and Resource Usage**: Implementing a queue in the Slow Module required balancing memory usage with the need to process frames efficiently.
-
-- **Error Propagation**: Ensuring that exceptions in one thread did not cause the entire application to crash was critical, requiring thoughtful error handling strategies.
+- **Syntax Problems**: Working with a programming language I'm not familiar with proved challenging due to syntax differences.
 
 ### **3.8 Learning Outcomes**
 
@@ -116,15 +110,9 @@ When I received the task, I began by carefully analyzing the requirements to ens
 
 - **Improved Object-Oriented Design Skills**: Designing the application with extensibility in mind highlighted the importance of good OOD principles.
 
-- **Enhanced Debugging Techniques**: Implementing and utilizing a logging system improved my ability to monitor and debug multithreaded applications.
-
+- **C++ Syntax**: This task Enhanced my knowledge of in C++ programming.
 ---
 
-## **4. Conclusion**
 
-By adding comprehensive comments and documentation, a detailed README file, and providing an explanation of the design and code, the project is now more accessible and maintainable. These enhancements not only make it easier for others to understand and contribute to the project but also demonstrate a professional approach to software development.
-
----
-
-**If you have any further questions or need assistance with any part of your project, feel free to ask!**
+**thanks!**
 
