@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- **C++ Compiler**: Compatible with C++11 or later.
+- **C++ Compiler**: Compatible with C++17 or later.
 - **OpenCV**: Version 3.0 or higher.
 - **CMake**: Version 3.5 or higher (optional, if using CMake for building).
 
