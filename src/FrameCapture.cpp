@@ -2,13 +2,12 @@
 #include <iostream>
 #include <utility>
 
-// constructor
-//Initializes member variables efficiently.
-//videoFilePath_(videoFilePath): Directly initializes videoFilePath_ with the passed parameter.
+/**
+ * FrameCapture class captures frames from a video file and sends them to registered modules.
+ */
 FrameCapture::FrameCapture(std::string  videoFilePath)
         : videoFilePath_(std::move(videoFilePath)), running_(false) {}
 
-// destructor
 FrameCapture::~FrameCapture() {
     stop();
 }

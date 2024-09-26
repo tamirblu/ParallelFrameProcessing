@@ -46,7 +46,7 @@ void FastModule::processingLoop() {
         frameQueue_.pop();
         lock.unlock();
 
-        // Process the frame (here, just count frames)
+        // count frames
         frameCount_++;
 
         // Calculate and print frame rate every 5 seconds

@@ -2,8 +2,11 @@
 #include <iostream>
 #include <chrono>
 #include <filesystem>
-namespace fs = std::filesystem; // For convenience
+namespace fs = std::filesystem;
 
+/*
+ * SlowModule saves frames as JPEG files with a limited 5 queue size.
+ */
 SlowModule::SlowModule(int sleepPeriodMs)
         : running_(false), sleepPeriodMs_(sleepPeriodMs) {
     // Create the directory if it doesn't exist
@@ -14,9 +17,8 @@ SlowModule::SlowModule(int sleepPeriodMs)
     if (!fs::exists(directoryPath)) {
         fs::create_directory(directoryPath);
     }
-    std::cout << "[SlowModule] Frame directory location: " << directoryPath << std::endl;
 
-    // Store the directory path for later use
+    std::cout << "[SlowModule] Frame directory location: " << directoryPath << std::endl;
     saveDirectory_ = directoryPath;
 }
 
@@ -37,7 +39,6 @@ void SlowModule::stop() {
     }
 }
 
-
 void SlowModule::processFrame(const cv::Mat& frame, int frameNumber) {
     std::lock_guard<std::mutex> lock(queueMutex_);
 
@@ -47,7 +48,6 @@ void SlowModule::processFrame(const cv::Mat& frame, int frameNumber) {
         frameQueue_.pop_front();
 
         journal_.logDroppedFrame(droppedFrameNumber);
-//        std::cout << "[SlowModule] Dropped frame number: " << droppedFrameNumber << std::endl;
     }
 
     frameQueue_.emplace_back(frame, frameNumber);
@@ -64,7 +64,6 @@ void SlowModule::processingLoop() {
         }
 
         auto frameData = frameQueue_.front();
-//        popSpecificFrame(frameQueue_.front().second);
         frameQueue_.pop_front();
         lock.unlock();
 

@@ -34,7 +34,6 @@ private:
     std::condition_variable cv_;
     double videoFPS_;
 
-    // For calculating frame rate
     int frameCount_;
     std::chrono::time_point<std::chrono::steady_clock> startTime_;
 };

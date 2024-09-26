@@ -12,11 +12,11 @@
  */
 int main(int argc, char* argv[]) {
    try{
-       // Default value
+       // Default value (can be overridden by command line argument)
        int sleepPeriod = 1000;
 
        //   option 1 hardcoded:
-       std::string videoFilePath = R"(C:\Users\koren\Desktop\RoboticanTask\12248500_1920_1080_30fps.mp4)";
+       std::string videoFilePath = R"(mp4_path.mp4)";
        //   option 2 from command line:
        if (argc >= 2){
             videoFilePath = argv[1];

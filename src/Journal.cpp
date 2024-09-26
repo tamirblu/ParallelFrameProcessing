@@ -1,6 +1,9 @@
 #include "Journal.h"
 #include <iostream>
 
+/*
+ * The Journal class is logs frame numbers that are saved or dropped.
+ */
 void Journal::logSavedFrame(int frameNumber) {
     std::lock_guard<std::mutex> lock(mutex_);
     savedFrames_.push_back(frameNumber);
