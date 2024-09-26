@@ -3,7 +3,9 @@
 
 #include <mutex>
 #include <vector>
-
+/**
+ *  Journal class for logging saved and dropped frames.
+ */
 class Journal {
 public:
     void logSavedFrame(int frameNumber);

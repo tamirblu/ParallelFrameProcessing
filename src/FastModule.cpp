@@ -2,12 +2,14 @@
 #include <iostream>
 
 FastModule::FastModule() : running_(false), frameCount_(0) {
-
+    videoFPS_ = 0;
 }
 
-FastModule::~FastModule() {
-    stop();
+void FastModule::fpsModify(const double videoFPS)   {
+    videoFPS_ = videoFPS;
 }
+
+FastModule::~FastModule() = default;
 
 void FastModule::start() {
     running_ = true;
@@ -53,7 +55,6 @@ void FastModule::processingLoop() {
 
         if (elapsedSeconds.count() >= 5.0) {
             double fps = frameCount_ / elapsedSeconds.count();
-//            TODO: FIX RACE CONDITION HERE
             std::cout << "[FastModule] Average FPS calculated last " << elapsedSeconds.count() << " seconds: " << fps << " Actual video fps: " << videoFPS_ << std::endl;
             // Reset counters
             frameCount_ = 0;

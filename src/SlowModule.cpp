@@ -13,15 +13,14 @@ SlowModule::SlowModule(int sleepPeriodMs)
 
     if (!fs::exists(directoryPath)) {
         fs::create_directory(directoryPath);
-        std::cout << "[SlowModule] Created directory: " << directoryPath << std::endl;
     }
+    std::cout << "[SlowModule] Frame directory location: " << directoryPath << std::endl;
+
     // Store the directory path for later use
     saveDirectory_ = directoryPath;
 }
 
-SlowModule::~SlowModule() {
-    stop();
-}
+SlowModule::~SlowModule() = default;
 
 void SlowModule::start() {
     running_ = true;

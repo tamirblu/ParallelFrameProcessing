@@ -2,7 +2,10 @@
 #define MODULE_H
 
 #include <opencv2/opencv.hpp>
-
+/**
+ * The Module class defines the interface for processing modules that can
+ * be started, stopped, and can process frames from a video stream.
+ */
 class Module {
 public:
     virtual void start() = 0;

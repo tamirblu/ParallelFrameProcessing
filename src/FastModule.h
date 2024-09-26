@@ -8,7 +8,11 @@
 #include <queue>
 #include <mutex>
 #include <chrono>
-
+#include <condition_variable>
+/**
+ *  FastModule calculates and logs the average frame rate every 5 seconds.
+ * Inherits from Module and processes frames to calculate the frame rate.
+ */
 class FastModule : public Module {
 public:
     explicit FastModule();
@@ -16,9 +20,8 @@ public:
 
     void start() override;
     void stop() override;
-
+    void fpsModify(double videoFPS);
     void processFrame(const cv::Mat& frame, int frameNumber) override;
-    double videoFPS_;
 
 private:
     void processingLoop();
@@ -29,6 +32,7 @@ private:
     std::queue<std::pair<cv::Mat, int>> frameQueue_;
     std::mutex queueMutex_;
     std::condition_variable cv_;
+    double videoFPS_;
 
     // For calculating frame rate
     int frameCount_;

@@ -12,7 +12,7 @@
 class FrameCapture {
 public:
 //  Constructor :  explicit: Prevents implicit conversions, ensuring the constructor is called only with a std::string.
-    explicit FrameCapture(const std::string& videoFilePath);
+    explicit FrameCapture(std::string  videoFilePath);
 //Destructor (~FrameCapture()): Ensures resources are cleaned up when the object is destroyed.
     ~FrameCapture();
 

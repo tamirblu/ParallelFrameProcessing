@@ -28,7 +28,9 @@ set(SOURCES
         src/FastModule.cpp
         src/SlowModule.cpp
         src/Journal.cpp
-        src/Module.cpp src/Module.h)
+        src/Module.cpp
+        src/Module.h)
+
 # Add your source files
 add_executable(RoboticanTask ${SOURCES})
 

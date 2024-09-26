@@ -11,8 +11,14 @@
 #include <string>
 #include "Journal.h"
 #include <filesystem>
+
 namespace fs = std::filesystem; // For convenience
 
+/**
+ * SlowModule saves frames as JPEG files with a limited 5 queue size.
+ * Maintains a thread-safe queue with a maximum capacity and saves frames.
+ * Inherits from Module
+ */
 class SlowModule : public Module {
 public:
     explicit SlowModule(int sleepPeriodMs = 1000);
