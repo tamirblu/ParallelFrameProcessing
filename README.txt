@@ -20,13 +20,13 @@
 2. **Create a Build Directory**
 
    ```bash
-    mkdir build
-    cd build
-    cmake (cmake -DOpenCV_DIR="...\opencv\build" "...\ParallelFrameProcessing")
-    make (or on windows cmake --build . --config Release)
-    Running the Application - *sleep_period_ms is optional*
-    ./ParallelFrameProcessing <video_file_path> [sleep_period_ms] (or ...\RoboticanTask\build\Release\RoboticanTask.exe)
-    Example: ./ParallelFrameProcessing ../data/video.mp4 1000
+    * mkdir build
+    * cd build
+    * cmake (cmake -DOpenCV_DIR="...\opencv\build" "...\ParallelFrameProcessing")
+    * make (or on windows cmake --build . --config Release)
+    * Running the Application - *sleep_period_ms is optional*
+    * ./ParallelFrameProcessing <video_file_path> [sleep_period_ms] (or ...\RoboticanTask\build\Release\RoboticanTask.exe)
+    * Example: ./ParallelFrameProcessing ../data/video.mp4 1000
     ```
 
 
